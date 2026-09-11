@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "BioSENTINEL SIH Prototype",
+  "editor": "wokwi",
+  "parts": [
+    {"type":"board-esp32-s3-devkitc-1","id":"esp","top":20,"left":20,"attrs":{"flashSize":"8","psramSize":"8"}},
+    {"type":"board-ssd1306","id":"oled","top":20,"left":300,"attrs":{"i2cAddress":"0x3c"}},
+    {"type":"wokwi-buzzer","id":"buzzer","top":170,"left":300},
+    {"type":"wokwi-led","id":"ledLow","top":230,"left":300,"attrs":{"color":"green","label":"LOW"}},
+    {"type":"wokwi-led","id":"ledHigh","top":260,"left":300,"attrs":{"color":"yellow","label":"HIGH"}},
+    {"type":"wokwi-led","id":"ledCrit","top":290,"left":300,"attrs":{"color":"red","label":"CRITICAL"}},
+    {"type":"wokwi-potentiometer","id":"potHR","top":120,"left":480,"attrs":{"value":"870"}},
+    {"type":"wokwi-potentiometer","id":"potSpO2","top":200,"left":480,"attrs":{"value":"3270"}},
+    {"type":"wokwi-potentiometer","id":"potTemp","top":280,"left":480,"attrs":{"value":"750"}},
+    {"type":"wokwi-potentiometer","id":"potAct","top":360,"left":480,"attrs":{"value":"1400"}},
+    {"type":"wokwi-potentiometer","id":"potHum","top":440,"left":480,"attrs":{"value":"1650"}},
+    {"type":"wokwi-potentiometer","id":"potPM","top":520,"left":480,"attrs":{"value":"140"}},
+    {"type":"wokwi-pushbutton","id":"btnNormal","top":120,"left":700,"attrs":{"color":"green","label":"NORMAL"}},
+    {"type":"wokwi-pushbutton","id":"btnHeat","top":180,"left":700,"attrs":{"color":"orange","label":"HEAT"}},
+    {"type":"wokwi-pushbutton","id":"btnPollution","top":240,"left":700,"attrs":{"color":"yellow","label":"POLLUTION"}},
+    {"type":"wokwi-pushbutton","id":"btnFall","top":300,"left":700,"attrs":{"color":"blue","label":"FALL"}},
+    {"type":"wokwi-pushbutton","id":"btnCritical","top":360,"left":700,"attrs":{"color":"red","label":"CRITICAL"}},
+    {"type":"wokwi-pushbutton","id":"btnOffline","top":420,"left":700,"attrs":{"color":"white","label":"OFFLINE"}}
+  ],
+  "connections": [
+    ["oled:VCC","esp:3V3","red",[]],["oled:GND","esp:GND.1","black",[]],["oled:SDA","esp:8","green",[]],["oled:SCL","esp:9","blue",[]],
+    ["buzzer:1","esp:10","purple",[]],["buzzer:2","esp:GND.1","black",[]],
+    ["ledLow:A","esp:11","green",[]],["ledLow:C","esp:GND.1","black",[]],["ledHigh:A","esp:12","yellow",[]],["ledHigh:C","esp:GND.1","black",[]],["ledCrit:A","esp:13","red",[]],["ledCrit:C","esp:GND.1","black",[]],
+    ["potHR:SIG","esp:1","orange",[]],["potHR:VCC","esp:3V3","red",[]],["potHR:GND","esp:GND.1","black",[]],
+    ["potSpO2:SIG","esp:2","orange",[]],["potSpO2:VCC","esp:3V3","red",[]],["potSpO2:GND","esp:GND.1","black",[]],
+    ["potTemp:SIG","esp:4","orange",[]],["potTemp:VCC","esp:3V3","red",[]],["potTemp:GND","esp:GND.1","black",[]],
+    ["potAct:SIG","esp:5","orange",[]],["potAct:VCC","esp:3V3","red",[]],["potAct:GND","esp:GND.1","black",[]],
+    ["potHum:SIG","esp:6","orange",[]],["potHum:VCC","esp:3V3","red",[]],["potHum:GND","esp:GND.1","black",[]],
+    ["potPM:SIG","esp:7","orange",[]],["potPM:VCC","esp:3V3","red",[]],["potPM:GND","esp:GND.1","black",[]],
+    ["btnNormal:1.l","esp:14","green",[]],["btnNormal:2.l","esp:GND.1","black",[]],["btnHeat:1.l","esp:15","orange",[]],["btnHeat:2.l","esp:GND.1","black",[]],
+    ["btnPollution:1.l","esp:16","yellow",[]],["btnPollution:2.l","esp:GND.1","black",[]],["btnFall:1.l","esp:17","blue",[]],["btnFall:2.l","esp:GND.1","black",[]],
+    ["btnCritical:1.l","esp:18","red",[]],["btnCritical:2.l","esp:GND.1","black",[]],["btnOffline:1.l","esp:19","white",[]],["btnOffline:2.l","esp:GND.1","black",[]]
+  ],
+  "serialMonitor": {"display":"always","newline":"lf","convertEol":true}
+}
